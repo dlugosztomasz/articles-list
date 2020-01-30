@@ -17,7 +17,7 @@
 }
 
 .articles {
-  width: 1000px;
+  flex: 1;
 }
 
 .article {
@@ -29,20 +29,20 @@
   padding-bottom: @spacing-s;
   font-size: @font-size-xl;
   font-weight: bold;
-  flex: 200 auto;
 }
 
 .date {
-  font-size: @font-size-xs;
-  align-self: center;
-  flex: 1 auto;
+  min-width: 100px;
+  font-size: @font-size-m;
+  align-self: end;
+  margin-left: auto
 }
 
 .headerContainer {
   display: flex;
 }
 
-img {
+.articleImage {
   width: 250px;
   height: 170px;
 }

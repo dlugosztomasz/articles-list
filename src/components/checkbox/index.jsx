@@ -6,8 +6,9 @@ const Checkbox = ({ name, checked, onChange }) => (
     <input
       type="checkbox"
       value={name}
+      name={name}
       checked={checked}
-      onClick={onChange}
+      onChange={onChange}
     />
       {name}
   </div>
