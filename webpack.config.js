@@ -3,22 +3,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: [ 'babel-polyfill', './src/index.js' ],
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
+                use: [ 'babel-loader' ]
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'less-loader'
+                    }
+                ]
             }
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: [ '*', '.js', '.jsx' ]
     },
     output: {
         path: path.resolve('dist'),
@@ -26,7 +36,8 @@ module.exports = {
         filename: 'main.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.SourceMapDevToolPlugin({})
     ],
     devServer: {
         contentBase: path.resolve('dist'),
