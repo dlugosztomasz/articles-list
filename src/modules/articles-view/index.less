@@ -1,9 +1,17 @@
 .articlesView {
-  max-width: 75%;
+  max-width: 90%;
   margin: auto;
   padding-top: 50px;
+  border: 5px solid #000;
+  border-radius: 50px;
 }
 
 .detailsView {
   display: flex;
+}
+
+@media screen and (max-width: 800px) {
+  .detailsView {
+    display: block;
+  }
 }

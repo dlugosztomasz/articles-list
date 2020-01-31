@@ -18,6 +18,7 @@
 
 .articles {
   flex: 1;
+  padding-right: @spacing-s;
 }
 
 .article {
@@ -42,7 +43,60 @@
   display: flex;
 }
 
-.articleImage {
-  width: 250px;
-  height: 170px;
+.imageContainer {
+  min-width: 250px;
+}
+
+@media screen and (max-width: 800px) {
+  .preamble {
+    display: none;
+  }
+
+  .detailsContainer {
+    margin-left: @spacing-xs;
+  }
+
+  .headerContainer {
+    display: block;
+  }
+
+  .articles {
+    padding: 0;
+  }
+
+  .article {
+    margin: @spacing-xs;
+  }
+
+  img {
+    width: 150px;
+    height: 100px;
+  }
+
+  .imageContainer {
+    min-width: 150px;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .article {
+    display: block;
+    border-top: 3px solid #000;
+  }
+
+  .imageContainer {
+    margin: auto;
+    width: 50%;
+    padding-top: @spacing-xs;
+  }
+
+  .title {
+    font-size: @font-size-m;
+    padding: 0;
+  }
+
+  .date {
+    font-size: @font-size-s;
+  }
 }

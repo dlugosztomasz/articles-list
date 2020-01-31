@@ -54,7 +54,7 @@ function Articles() {
           <>
             {chosenArticles.map(({ date, image, title, preamble }, index) => (
               <div key={`${title}-${index}`} className="article">
-                <div className="articleImage">
+                <div className="imageContainer">
                   <img
                     alt=""
                     width={250}
@@ -66,7 +66,7 @@ function Articles() {
                     <div className="title">{title}</div>
                     <div className="date">{date}</div>
                   </div>
-                  <div>{preamble}</div>
+                  <div className="preamble">{preamble}</div>
                 </div>
               </div>
             ))}

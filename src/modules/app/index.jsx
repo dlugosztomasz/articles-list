@@ -1,8 +1,9 @@
 import React from 'react';
 import ArticlesView from '../articles-view';
+import styles from './index.less';
 
 const App = () => (
-  <div>
+  <div className="app">
     <ArticlesView />
   </div>
 );
