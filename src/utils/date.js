@@ -11,9 +11,11 @@ const monthsWithTypoMapper = {
 export const handleDate = (item) => {
   const itemClone = { ...item };
   const date = itemClone.date.split(' ');
-  const { day, month, year } = date;
+  const month = date[1];
   const appropriateMonth = monthsWithTypoMapper[month];
   if (appropriateMonth) {
+    const day = date[0];
+    const year = date[2];
     itemClone.date = [ day, appropriateMonth, year ].join(' ');
   }
   return {
