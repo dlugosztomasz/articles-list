@@ -41,7 +41,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.SourceMapDevToolPlugin({}),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            inject: false
         })
     ],
     devServer: {
