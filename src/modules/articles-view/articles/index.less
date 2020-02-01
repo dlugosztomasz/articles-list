@@ -1,14 +1,4 @@
-@spacing-xl: 70px;
-@spacing-l: 50px;
-@spacing-m: 30px;
-@spacing-s: 20px;
-@spacing-xs: 10px;
-
-@font-size-xl: 26px;
-@font-size-l: 22px;
-@font-size-m: 18px;
-@font-size-s: 14px;
-@font-size-xs: 10px;
+@import '../../../styles/index.less';
 
 .detailsContainer {
   margin-left: @spacing-l;
@@ -47,13 +37,40 @@
   min-width: 250px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: @font-size-l;
+  }
+
+  .imageContainer {
+    min-width: 200px;
+  }
+
+  .detailsContainer {
+    margin-left: @spacing-s;
+  }
+
+  .article {
+    margin: 30px 30px 30px 0;
+  }
+
+  img {
+    width: 200px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .preamble {
     display: none;
   }
 
   .detailsContainer {
     margin-left: @spacing-xs;
+  }
+
+  .title {
+    padding-bottom: 0;
   }
 
   .headerContainer {
@@ -79,7 +96,7 @@
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .article {
     display: block;
     border-top: 3px solid #000;

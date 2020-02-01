@@ -1,5 +1,5 @@
-import { serverUrl } from '../config';
-import { toJSON, handleErrors } from '../utils/request';
+import { serverUrl } from 'config';
+import { toJSON, handleErrors } from 'utils/request';
 
 export const fetchSportArticles = () =>
   fetch(`${serverUrl}/articles/sports`)

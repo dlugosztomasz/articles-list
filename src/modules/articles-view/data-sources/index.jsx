@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import allActions from '../../../state/actions';
-import { CheckboxList } from '../../../components';
-import { availableDataSources } from '../../../config';
+import allActions from 'state/actions';
+import { CheckboxList } from 'components';
+import { availableDataSources } from 'config';
 import styles from './index.less';
 
 const DataSources = () => {

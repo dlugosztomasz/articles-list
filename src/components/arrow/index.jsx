@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './index.less';
 
 const Arrow = ({ type, onClick, value }) => (
-  <div onClick={() => onClick(value)}>
-    <i className={`arrow ${type}`} />
+  <div>
+    <i onClick={() => onClick(value)} className={`arrow ${type}`} />
   </div>
 );
 

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import allActions from '../../../state/actions';
-import { Arrow } from '../../../components';
-import { arrowTypes, alphabeticSortingTypesMapper } from '../../../config';
+import allActions from 'state/actions';
+import { Arrow } from 'components';
+import { arrowTypes, alphabeticSortingTypesMapper } from 'config';
 import styles from './index.less';
 
 const SORTING_TITLE = 'Sort by Date';

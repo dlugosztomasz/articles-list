@@ -1,3 +1,5 @@
+@import '../../../styles/index.less';
+
 .sortingComponent {
   display: flex;
   flex-direction: row-reverse;
@@ -7,10 +9,19 @@
 
 .sortingTitle {
   order: 1;
-  font-size: 20px;
-  padding: 10px;
+  font-size: @font-size-m;
+  padding: @spacing-xs;
 }
 
 .sortingArrows {
   align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .sortingComponent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(25%);
+  }
 }

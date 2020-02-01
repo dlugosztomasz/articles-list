@@ -1,32 +1,34 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
-import { fetchSportArticles, fetchFashionArticles } from '../../../api/articles';
-import { AppLoader, Message } from '../../../components';
-import { alphabeticSortingTypesMapper } from '../../../config';
-import { handleDate } from '../../../utils/date';
+import { fetchSportArticles, fetchFashionArticles } from 'api/articles';
+import { AppLoader, Message } from 'components';
+import { alphabeticSortingTypesMapper, messages  } from 'config';
+import { handleDate } from 'utils/date';
 import styles from './index.less';
 
 function Articles() {
   const [ fashionArticles, setFashionArticles ] = useState([]);
   const [ sportArticles, setSportArticles ] = useState([]);
-  const [ error, setIsError ] = useState(false);
+  const [ hasError, setHasError ] = useState(false);
   const [ loading, setIsLoading ] = useState(false);
   const { alphabeticSortingType, dataSources } = useSelector(state => state.articles);
 
-  useEffect(async () => {
-    setIsError(false);
-    setIsLoading(true);
-    try {
-      const { articles: sportsCategory } = await fetchSportArticles();
-      const { articles: fashionCategory } = await fetchFashionArticles();
-      setSportArticles(sportsCategory.map(handleDate));
-      setFashionArticles(fashionCategory.map(handleDate));
-    } catch (error) {
-      setIsError(true);
-    }
-    setIsLoading(false);
-  }, []);
+  useEffect(() => {
+    (async () => {
+      setHasError(false);
+      setIsLoading(true);
+      try {
+        const { articles: sportsCategory } = await fetchSportArticles();
+        const { articles: fashionCategory } = await fetchFashionArticles();
+        setSportArticles(sportsCategory.map(handleDate));
+        setFashionArticles(fashionCategory.map(handleDate));
+      } catch (error) {
+        setHasError(true);
+      }
+      setIsLoading(false);
+    })();
+  },[]);
 
   const chosenArticles = useMemo(() => {
     const dataSourcesSmallCases = dataSources.map(data => data.toLowerCase());
@@ -41,16 +43,15 @@ function Articles() {
 
   return (
     <div className="articles">
-      {error && (
+      {hasError && (
         <Message
           error={true}
-          title={'Something went wrong'}/>
+          title={messages.SERVER_ERROR}/>
       )}
-      {loading ?
-        (
-          <AppLoader title={'Loading...'}/>
-        ) :
-        (
+      {loading && (
+          <AppLoader title={messages.LOADING}/>
+      )}
+      {!!chosenArticles.length && (
           <>
             {chosenArticles.map(({ date, image, title, preamble }, index) => (
               <div key={`${title}-${index}`} className="article">
@@ -71,8 +72,11 @@ function Articles() {
               </div>
             ))}
           </>
-        )
-      }
+      )}
+      {!chosenArticles.length && !loading && !hasError && (
+        <Message
+          title={messages.NO_ITEMS_SELECTED} />
+      )}
     </div>
   )
 }

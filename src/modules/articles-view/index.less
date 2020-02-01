@@ -1,17 +1,24 @@
+@import '../../styles/index.less';
+
 .articlesView {
+  display: flex;
+  min-height: 50vh;
   max-width: 90%;
   margin: auto;
-  padding-top: 50px;
+  padding: @spacing-xs 0;
   border: 5px solid #000;
   border-radius: 50px;
 }
 
 .detailsView {
   display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-@media screen and (max-width: 800px) {
-  .detailsView {
+@media screen and (max-width: 768px) {
+  .articlesView {
     display: block;
+    position: relative;
   }
 }

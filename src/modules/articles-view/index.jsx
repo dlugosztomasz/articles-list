@@ -7,9 +7,9 @@ import styles from './index.less';
 function ArticlesView() {
   return (
     <div className="articlesView">
-      <Sorting />
+      <DataSources />
       <div className="detailsView">
-        <DataSources />
+        <Sorting />
         <Articles />
       </div>
     </div>

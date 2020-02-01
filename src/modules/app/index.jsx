@@ -1,11 +1,15 @@
-import React from 'react';
-import ArticlesView from '../articles-view';
-import styles from './index.less';
+import React, {Suspense} from 'react';
+import { messages } from 'config';
+const ArticlesView = React.lazy(() => import('../articles-view'));
 
 const App = () => (
-  <div className="app">
-    <ArticlesView />
-  </div>
+  <>
+    <Suspense fallback={
+      <div>{messages.LOADING}</div>
+    }>
+      <ArticlesView />
+    </Suspense>
+  </>
 );
 
 export default App;

@@ -16,8 +16,7 @@ export const handleDate = (item) => {
   if (appropriateMonth) {
     const day = date[0];
     const year = date[2];
-    const newDate = [day, appropriateMonth, year].join(' ');
-    itemClone.date = newDate;
+    itemClone.date = [day, appropriateMonth, year].join(' ');
   }
   return {
     ...itemClone,

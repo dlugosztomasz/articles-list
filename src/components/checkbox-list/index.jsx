@@ -6,14 +6,17 @@ import styles from './index.less';
 const CheckboxList = ({ title, items, onChange }) => (
   <div>
     <div className="checkboxListTitle">{title}</div>
+    <div className="checkboxContainer">
     {items.map((item, index) => (
-      <div className="checkbox">
+      <div
+        key={`${name}-${index}`}
+        className="checkbox">
         <Checkbox
-          key={`${name}-${index}`}
           {...item}
           onChange={onChange} />
       </div>
     ))}
+    </div>
   </div>
 );
 

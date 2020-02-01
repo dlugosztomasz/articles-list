@@ -18,7 +18,6 @@ export default Checkbox;
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
-  item: PropTypes.object,
   name: PropTypes.string,
   onChange: PropTypes.func
 };
