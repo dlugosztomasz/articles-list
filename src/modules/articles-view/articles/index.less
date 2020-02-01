@@ -7,8 +7,8 @@
 }
 
 .articles {
-  flex: 1;
-  padding-right: @spacing-s;
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
 
 .article {
@@ -50,10 +50,6 @@
     margin-left: @spacing-s;
   }
 
-  .article {
-    margin: 30px 30px 30px 0;
-  }
-
   img {
     width: 200px;
     height: 160px;
@@ -78,7 +74,7 @@
   }
 
   .articles {
-    padding: 0;
+    grid-column: 1 e('/') 3;
   }
 
   .article {

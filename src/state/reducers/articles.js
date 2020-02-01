@@ -1,4 +1,4 @@
-import { availableDataSources, alphabeticSortingTypesMapper } from '../../config';
+import { availableDataSources, alphabeticSortingTypesMapper } from 'config';
 
 const initialState = {
   dataSources: availableDataSources,

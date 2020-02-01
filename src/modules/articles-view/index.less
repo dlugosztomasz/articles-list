@@ -1,7 +1,9 @@
 @import '../../styles/index.less';
 
 .articlesView {
-  display: flex;
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100px auto;
   min-height: 50vh;
   max-width: 90%;
   margin: auto;
@@ -10,15 +12,14 @@
   border-radius: 50px;
 }
 
-.detailsView {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+@media screen and (max-width: 1024px) {
+  .articlesView {
+    grid-template-columns: 150px auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .articlesView {
-    display: block;
-    position: relative;
+    grid-template-columns: auto auto;
   }
 }

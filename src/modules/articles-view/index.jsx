@@ -8,10 +8,8 @@ function ArticlesView() {
   return (
     <div className="articlesView">
       <DataSources />
-      <div className="detailsView">
-        <Sorting />
-        <Articles />
-      </div>
+      <Sorting />
+      <Articles />
     </div>
   );
 }

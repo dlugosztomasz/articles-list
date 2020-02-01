@@ -3,7 +3,9 @@
 .sortingComponent {
   display: flex;
   flex-direction: row-reverse;
-  align-items: flex-end;
+  align-items: center;
+  grid-column-start: 2;
+  justify-self: end;
   padding-right: 40px;
 }
 
@@ -15,13 +17,4 @@
 
 .sortingArrows {
   align-self: center;
-}
-
-@media screen and (max-width: 768px) {
-  .sortingComponent {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(25%);
-  }
 }
