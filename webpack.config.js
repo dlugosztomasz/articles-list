@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -38,7 +39,10 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.SourceMapDevToolPlugin({})
+        new webpack.SourceMapDevToolPlugin({}),
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
     ],
     devServer: {
         contentBase: path.resolve('dist'),

@@ -1,5 +1,5 @@
 To run the app:
-1. Download the repo
+1. Download the repo from master
 2. to install the project: npm install command
 3. to run tests: npm run test
 5. to run the server: node server.js
@@ -25,7 +25,7 @@ I created structure for the project:
 
 App module is some kind of the container for the rest modules. There could be things like headers, footers and routing logic as well.
 In this case I render only ArticleView module which renders few smaller containers: DataSources, Sourting and Articles.
-Sourting and DataView containers has been connected to redux state. Thanks to that Articles container has information about sourting type
+Sourting and DataSources containers has been connected to redux state. Thanks to that Articles container has information about sourting type
 and data sources. State for this could be handled in ArticlesView as well but keeping in mind that someone would add next module like ArticlesView
 in the future and use state from ArtliclesView, I decided to connect redux.
 Components were written with hooks.
