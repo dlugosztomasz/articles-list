@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import jest from 'jest-mock';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -28,7 +28,9 @@ describe('Data Sources Container', () => {
         <DataSources />
       </Provider>
     );
-    component.find('input').first().simulate('change');
+    component.find('input')
+      .first()
+      .simulate('change');
     expect(mockStore.dispatch).toHaveBeenCalledWith(actions.articlesActions.setDataSources([ 'Sport' ]));
   });
 });

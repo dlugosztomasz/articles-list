@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import jest from 'jest-mock';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -27,7 +27,9 @@ describe('Sorting Container', () => {
         <Sorting />
       </Provider>
     );
-    component.find('i').first().simulate('click');
+    component.find('i')
+      .first()
+      .simulate('click');
     expect(mockStore.dispatch).toHaveBeenCalledWith(actions.articlesActions.setTypeOfAlphabeticSorting('asc'));
   });
 });

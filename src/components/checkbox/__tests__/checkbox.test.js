@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import jest from 'jest-mock';
 import Checkbox from '../index';
 

@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 import { messages } from 'config';
 const ArticlesView = React.lazy(() => import('../articles-view'));
 

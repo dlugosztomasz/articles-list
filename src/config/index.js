@@ -2,7 +2,7 @@ export const serverUrl = 'http://localhost:6010';
 
 export const availableDataSources = [ 'Fashion', 'Sport' ];
 
-export const alphabeticSortingTypesMapper = {
+export const alphabeticSortingType = {
   ASC: 'asc',
   DESC: 'desc'
 };

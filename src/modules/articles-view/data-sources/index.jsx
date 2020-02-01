@@ -6,7 +6,7 @@ import { availableDataSources } from 'config';
 import styles from './index.less';
 
 const DataSources = () => {
-  const { dataSources } = useSelector(state => state.articles);
+  const { dataSources } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
   const title = 'Data sources';
 
@@ -21,7 +21,7 @@ const DataSources = () => {
     const { target: { value } } = event;
     const { setDataSources } = allActions.articlesActions;
     if (dataSources.includes(value)) {
-      const newDataSource = dataSources.filter(source => source !== value);
+      const newDataSource = dataSources.filter((source) => source !== value);
       dispatch(setDataSources(newDataSource));
     } else {
       const newDataSource = [ ...dataSources, value ];

@@ -1,8 +1,8 @@
-import { availableDataSources, alphabeticSortingTypesMapper } from 'config';
+import { availableDataSources, alphabeticSortingType } from 'config';
 
 const initialState = {
   dataSources: availableDataSources,
-  alphabeticSortingType: alphabeticSortingTypesMapper.ASC
+  alphabeticSortingType: alphabeticSortingType.ASC
 };
 
 const articles = (state = initialState, action) => {
@@ -22,4 +22,4 @@ const articles = (state = initialState, action) => {
   }
 };
 
-export default  articles;
+export default articles;

@@ -9,17 +9,16 @@ const monthsWithTypoMapper = {
 };
 
 export const handleDate = (item) => {
-  const itemClone = {...item};
+  const itemClone = { ...item };
   const date = itemClone.date.split(' ');
-  const month = date[1];
+  const { day, month, year } = date;
   const appropriateMonth = monthsWithTypoMapper[month];
   if (appropriateMonth) {
-    const day = date[0];
-    const year = date[2];
-    itemClone.date = [day, appropriateMonth, year].join(' ');
+    itemClone.date = [ day, appropriateMonth, year ].join(' ');
   }
   return {
     ...itemClone,
-    date: moment(itemClone.date).format(DATE_FORMAT).toString()
-  }
+    date: moment(itemClone.date).format(DATE_FORMAT)
+      .toString()
+  };
 };

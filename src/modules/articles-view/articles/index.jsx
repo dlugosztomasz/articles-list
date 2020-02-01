@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import moment from 'moment';
 import { fetchSportArticles, fetchFashionArticles } from 'api/articles';
 import { AppLoader, Message } from 'components';
-import { alphabeticSortingTypesMapper, messages  } from 'config';
+import { alphabeticSortingType, messages } from 'config';
 import { handleDate } from 'utils/date';
 import styles from './index.less';
 
@@ -12,7 +12,7 @@ function Articles() {
   const [ sportArticles, setSportArticles ] = useState([]);
   const [ hasError, setHasError ] = useState(false);
   const [ loading, setIsLoading ] = useState(false);
-  const { alphabeticSortingType, dataSources } = useSelector(state => state.articles);
+  const { alphabeticSortingType: alphabeticSortingTypeState, dataSources } = useSelector((state) => state.articles);
 
   useEffect(() => {
     (async () => {
@@ -28,18 +28,20 @@ function Articles() {
       }
       setIsLoading(false);
     })();
-  },[]);
+  }, []);
 
   const chosenArticles = useMemo(() => {
-    const dataSourcesSmallCases = dataSources.map(data => data.toLowerCase());
+    const dataSourcesSmallCases = dataSources.map((data) => data.toLowerCase());
     const articlesByCategory = [ ...fashionArticles, ...sportArticles ]
-      .filter(({category}) => dataSourcesSmallCases.includes(category))
-      .sort((a, b) => moment(a.date).diff(moment(b.date)));
-    if (alphabeticSortingType === alphabeticSortingTypesMapper.DESC) {
+      .filter(({ category }) => dataSourcesSmallCases.includes(category))
+      .sort((first, second) => moment(first.date).diff(moment(second.date)));
+    if (alphabeticSortingTypeState === alphabeticSortingType.DESC) {
       return articlesByCategory.reverse();
     }
     return articlesByCategory;
-  }, [ fashionArticles, sportArticles, dataSources, alphabeticSortingType ]);
+  }, [
+    fashionArticles, sportArticles, dataSources, alphabeticSortingTypeState
+  ]);
 
   return (
     <div className="articles">
@@ -51,7 +53,7 @@ function Articles() {
       {loading && (
           <AppLoader title={messages.LOADING}/>
       )}
-      {!!chosenArticles.length && (
+      {Boolean(chosenArticles.length) && (
           <>
             {chosenArticles.map(({ date, image, title, preamble }, index) => (
               <div key={`${title}-${index}`} className="article">
@@ -78,7 +80,7 @@ function Articles() {
           title={messages.NO_ITEMS_SELECTED} />
       )}
     </div>
-  )
+  );
 }
 
 export default Articles;

@@ -1,13 +1,14 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import allActions from 'state/actions';
 import { Arrow } from 'components';
-import { arrowTypes, alphabeticSortingTypesMapper } from 'config';
+import { arrowTypes, alphabeticSortingType } from 'config';
 import styles from './index.less';
 
 const SORTING_TITLE = 'Sort by Date';
 
 const Sorting = () => {
+  const { alphabeticSortingType: alphabeticSortingTypeState } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
 
   const onClick = useCallback((value) => {
@@ -21,11 +22,13 @@ const Sorting = () => {
       <div className="sortingArrows">
         <Arrow
           type={arrowTypes.UP}
-          value={alphabeticSortingTypesMapper.ASC}
+          activeType={alphabeticSortingTypeState}
+          value={alphabeticSortingType.ASC}
           onClick={onClick} />
         <Arrow
           type={arrowTypes.DOWN}
-          value={alphabeticSortingTypesMapper.DESC}
+          activeType={alphabeticSortingTypeState}
+          value={alphabeticSortingType.DESC}
           onClick={onClick} />
       </div>
     </div>
