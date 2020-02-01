@@ -1,9 +1,9 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
     entry: [ 'babel-polyfill', './src/index.js' ],
+    mode: 'development',
     module: {
         rules: [
             {
@@ -28,7 +28,8 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [ '*', '.js', '.jsx' ]
+        extensions: [ '*', '.js', '.jsx' ],
+        modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     output: {
         path: path.resolve('dist'),

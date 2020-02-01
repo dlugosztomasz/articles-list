@@ -1,0 +1,25 @@
+@import '../../styles/index.less';
+
+.articlesView {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100px auto;
+  min-height: 50vh;
+  max-width: 90%;
+  margin: auto;
+  padding: @spacing-xs 0;
+  border: 5px solid #000;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .articlesView {
+    grid-template-columns: 150px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .articlesView {
+    grid-template-columns: auto auto;
+  }
+}
