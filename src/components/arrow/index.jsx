@@ -18,7 +18,7 @@ const Arrow = ({ type, onClick, value, activeType }) => (
 export default Arrow;
 
 Arrow.propTypes = {
-  activeType: PropTypes.oneOf(),
+  activeType: PropTypes.oneOf([ alphabeticSortingType.ASC, alphabeticSortingType.DESC ]),
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired

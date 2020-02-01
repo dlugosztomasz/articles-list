@@ -10,17 +10,15 @@ const monthsWithTypoMapper = {
 
 export const handleDate = (item) => {
   const itemClone = { ...item };
-  const date = itemClone.date.split(' ');
-  const month = date[1];
-  const appropriateMonth = monthsWithTypoMapper[month];
-  if (appropriateMonth) {
-    const day = date[0];
-    const year = date[2];
-    itemClone.date = [ day, appropriateMonth, year ].join(' ');
-  }
+  const dateParts = itemClone.date.split(' ');
+  const day = dateParts[0].replace('.', '');
+  const month = moment().month(monthsWithTypoMapper[dateParts[1]] || dateParts[1])
+    .format('M');
+  const year = dateParts[2];
+  const date = moment(`${month} ${day} ${year}`).format(DATE_FORMAT);
+
   return {
     ...itemClone,
-    date: moment(itemClone.date).format(DATE_FORMAT)
-      .toString()
+    date
   };
 };
