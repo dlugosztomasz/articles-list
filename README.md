@@ -1,6 +1,6 @@
 To run the app:
 1. Download the repo from master
-2. to install the project: npm install command
+2. to install the project: npm install
 3. to run tests: npm run test
 5. to run the server: node server.js
 6. to run project: npm run dev
